@@ -2,7 +2,7 @@
 and each integer appears once or twice return an array of all the integers that appears twice 
 wirte an algo that runs in o (n) ( linear)  time and uses only constant O (1) extra space 
 
-//floyd's cycle detection algortihm
+//floyd's cycle detection algorithm
 */
 
 
@@ -21,7 +21,7 @@ var findDuplicates =function(nums) {
   //example n=8 so index would be 8-1 =7 since an array's index is 0 based 
   
   //create a variable for the value which is what is currently in at nums index at any given time in the loop 
-  
+ 
   
   //use the previous index value to generate the vlaue of the 'value' var 
  
@@ -41,19 +41,33 @@ var findDuplicates =function(nums) {
     }
     
     var findDuplicates =function(nums){
-    let result =[]
-    for(let i=0; i < nums.length; i++){
-    let index =Math.abs(nums[i]) -1
-    let value =nums[index]
-    
-    if(value <0){
-    result.push(Math.abs(nums[i])) 
-    }else{
-    nums[index]=-nums[index]
+      let result =[]
+      for(let i=0; i < nums.length; i++){
+      
+        let index =Math.abs(nums[i]) -1
+        let value =nums[index]
+      if(value < 0){
+        result.push(Math.abs(nums[i])) 
+        // or result.push(index +1)
+      }else{
+        nums[index]=-nums[index]
       }
     }
       return result
     }
+    
+    //example array= [4,3,2,7,8,2,3,1]
+    // nums[i]=4
+    //4-1=3
+    //i=3
+    //nums[3]=7
+    //(7 < 0 ) =fale
+    //turn it a. negative # 
+    //7= -7
+    //loop continues to next value and so on until all numbers have been "visited" and all duplicates identified 
+    //dulicates will access the same index, then we add that value to the return array 
+    
+    //returns = [2, 3]
     
   
 
